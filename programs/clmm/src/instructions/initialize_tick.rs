@@ -6,6 +6,19 @@ use crate::{
     utils::tick_to_sqrt_price_x64
 };
 
+pub fn initialize_tick(
+    ctx:Context<InitialiseTick>,
+    tick_index:i32
+)->Result<()>{
+    let tick = &mut ctx.accounts.tick;
+    let sqrt_price_x64 = tick_to_sqrt_price_x64(tick_index)?;
+    tick.index = tick_index;
+    tick.squrt_price_x64 = sqrt_price_x64;
+    tick.liquidity_net = 0;
+    tick.bump = ctx.bumps.tick;
+    Ok(())
+}
+
 #[derive(Accounts)]
 #[instruction(tick_index:i32)]
 pub struct InitialiseTick<'info>{
@@ -15,7 +28,7 @@ pub struct InitialiseTick<'info>{
     pub mint_b:Account<'info, Mint>,
 
     #[account(
-        seeds=[b"authority",mint_a.key().as_ref(),mint_b.key().as_ref()],
+        seeds=[b"pool",mint_a.key().as_ref(),mint_b.key().as_ref()],
         bump
     )]
     pub pool:AccountLoader<'info, Pool>,
