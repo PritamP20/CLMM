@@ -639,4 +639,4 @@ This is possible because:
 ❌ High impermanent loss, low fees
 ❌ Gas costs exceed earnings (on expensive chains)
 
-**The Golden Rule:** Fees must outpace impermanent loss. Choose your ranges and pairs wisely!
+**The Golden Rule:** Fees must outpace impermanent loss. Choose your ranges and pairs wisely!     
