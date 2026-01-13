@@ -1,5 +1,5 @@
 # Concentrated Liquidity Market Maker (CLMM) - Complete Mathematical Guide
-
+     
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Core Concepts](#core-concepts)
